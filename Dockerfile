@@ -1,9 +1,15 @@
 FROM node:20-alpine
 
 WORKDIR /app
-COPY app/package.json ./
+
+# Копируем package.json и устанавливаем зависимости
+COPY src/package.json ./
 RUN npm install
-COPY app/. ./
+
+# Копируем весь исходный код
+COPY src ./src
 
 EXPOSE 3000
-CMD ["npm", "start"]
+
+# Команда запуска
+CMD ["node", "src/app.js"]
