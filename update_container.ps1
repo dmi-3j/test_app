@@ -1,16 +1,18 @@
 # Путь к папке проекта
-$ProjectPath = "C:\path\to\test_project"
+$ProjectPath = "D:\docker\for-git\"
 
 # Переходим в папку проекта
 Set-Location $ProjectPath
 
 Write-Host "Pulling latest changes from GitHub..."
-git pull origin main
+git pull origin master
 
 Write-Host "Stopping old containers..."
 docker-compose down
 
 Write-Host "Building and starting containers..."
-docker-compose up -d
+docker-compose up -d --build
 
 Write-Host "Update complete!"
+
+Read-Host
