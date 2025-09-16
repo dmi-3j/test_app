@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
     }
 
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(`Test app is running! GIT is working! \nStarted at: ${createdAt.toISOString()}\nInstance: ${instanceId}`);
+    res.end(`Test app is running! \nStarted at: ${createdAt.toISOString()}\nInstance: ${instanceId}`);
 });
 
 server.listen(port, () => console.log(`Server running at http://localhost:${port}/`));
